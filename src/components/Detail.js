@@ -1,38 +1,83 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import db from '../firebase';
+import { auth } from '../firebase';
+import { selectUserName, setUserLogin } from '../features/user/userSlice';
+import { useHistory } from 'react-router-dom'
+import Login from './Login';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Detail() {
+    const { id } = useParams();
+    const [movie, setMovie] = useState();
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const userName = useSelector(selectUserName);
+
+    useEffect(() => {
+        db.collection('movies').doc(id).get().then((doc) => {
+            if (doc.exists) {
+                setMovie(doc.data());
+            } else {
+
+            }
+        })
+    }, [])
+
+    useEffect(() => {
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL
+                }));
+            } else {
+                history.push('/login');
+            }
+        })
+    }, [])
+
     return (
-        <Container>
-            <Background>
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81dYVmjI3YL._RI_.jpg" />
-            </Background>
-            <ImgTitle>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYDHiCL9BBRdo4KzjqsG-noGg413qRgpFiww&usqp=CAU" />
-            </ImgTitle>
-            <Controls>
-                <PlayButton>
-                    <img src="/images/play-icon-black.png" />
-                    <span>PLAY</span>
-                </PlayButton>
-                <TrailerButton>
-                    <img src="/images/play-icon-white.png" />
-                    <span>TRAILER</span>
-                </TrailerButton>
-                <AddButton>
-                    <span>+</span>
-                </AddButton>
-                <GroupWatchButton>
-                    <img src="/images/group-icon.png" />
-                </GroupWatchButton>
-            </Controls>
-            <SubTitle>
-                2019 - 7m - Family, Fantasy, Kids, Animation
-            </SubTitle>
-            <Description>
-                This is a Description  This is a Description  This is a Description  This is a Description  This is a Description  This is a Description  This is a Description
-            </Description>
-        </Container>
+        <div>
+            { !userName ? (
+                <>
+                    <Login />
+                </>
+            ) :
+                <Container>
+                    <Background>
+                        <img src={movie?.backgroundImg} />
+                    </Background>
+                    <ImgTitle>
+                        <img src={movie?.titleImg} />
+                    </ImgTitle>
+                    <Controls>
+                        <PlayButton>
+                            <img src="/images/play-icon-black.png" />
+                            <span>PLAY</span>
+                        </PlayButton>
+                        <TrailerButton>
+                            <img src="/images/play-icon-white.png" />
+                            <span>TRAILER</span>
+                        </TrailerButton>
+                        <AddButton>
+                            <span>+</span>
+                        </AddButton>
+                        <GroupWatchButton>
+                            <img src="/images/group-icon.png" />
+                        </GroupWatchButton>
+                    </Controls>
+                    <SubTitle>
+                        {movie?.subTitle}
+                    </SubTitle>
+                    <Description>
+                        {movie?.description}
+                    </Description>
+                </Container>
+            }
+        </div>
     )
 }
 
@@ -76,6 +121,7 @@ const ImgTitle = styled.div`
 const Controls = styled.div`
     display: flex;
     align-items: center;
+    padding-top: 10px;
 `
 
 const PlayButton = styled.button`

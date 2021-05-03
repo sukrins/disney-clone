@@ -8,8 +8,7 @@ function Login() {
                 <LogoOne src="/images/cta-logo-one.svg" />
                 <SignUp>GET ALL THERE</SignUp>
                 <Description>
-                    This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription This is a DEscription
-                </Description>
+                    Endless entertainment from Disney, Pixar, Marvel, Star Wars, and National Geographic. From new releases, to your favorite classics, the past, present, and future are yours. Shows: Beauty and the Beast, Moana, Aladdin, Mary Poppins, Pinocchio, Cinderella, Lion King.                </Description>
                 <LogoTwo src="/images/cta-logo-two.png" />
             </Content>
         </Container>
