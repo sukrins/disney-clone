@@ -46,7 +46,7 @@ function Header() {
 
     return (
         <Nav>
-            <Logo src="https://sukrins.github.io/disney-clone/images/logo.svg" />
+            <Logo src="/images/logo.svg" />
             { !userName ? (
                 <LoginContainer>
                     <Login onClick={signIn}>Login</Login>
@@ -55,27 +55,27 @@ function Header() {
                 <>
                     <NavMenu>
                         <a href='/'>
-                            <img src="https://sukrins.github.io/disney-clone/images/home-icon.svg" />
+                            <img src="/images/home-icon.svg" />
                             <span>HOME</span>
                         </a>
                         <a>
-                            <img src="https://sukrins.github.io/disney-clone/images/search-icon.svg" />
+                            <img src="/images/search-icon.svg" />
                             <span>SEARCH</span>
                         </a>
                         <a>
-                            <img src="https://sukrins.github.io/disney-clone/images/watchlist-icon.svg" />
+                            <img src="/images/watchlist-icon.svg" />
                             <span>WATCHLIST</span>
                         </a>
                         <a>
-                            <img src="https://sukrins.github.io/disney-clone/images/original-icon.svg" />
+                            <img src="/images/original-icon.svg" />
                             <span>ORIGINALS</span>
                         </a>
                         <a>
-                            <img src="https://sukrins.github.io/disney-clone/images/movie-icon.svg" />
+                            <img src="/images/movie-icon.svg" />
                             <span>MOVIES</span>
                         </a>
                         <a>
-                            <img src="https://sukrins.github.io/disney-clone/images/series-icon.svg" />
+                            <img src="/images/series-icon.svg" />
                             <span>SERIES</span>
                         </a>
                     </NavMenu>

@@ -5,11 +5,11 @@ function Login() {
     return (
         <Container>
             <Content>
-                <LogoOne src="https://sukrins.github.io/disney-clone/images/cta-logo-one.svg" />
+                <LogoOne src="/images/cta-logo-one.svg" />
                 <SignUp>GET ALL THERE</SignUp>
                 <Description>
                     Endless entertainment from Disney, Pixar, Marvel, Star Wars, and National Geographic. From new releases, to your favorite classics, the past, present, and future are yours. Shows: Beauty and the Beast, Moana, Aladdin, Mary Poppins, Pinocchio, Cinderella, Lion King.                </Description>
-                <LogoTwo src="https://sukrins.github.io/disney-clone/images/cta-logo-two.png" />
+                <LogoTwo src="/images/cta-logo-two.png" />
             </Content>
         </Container>
     )
@@ -34,7 +34,7 @@ const Container = styled.div`
         background-position: top;
         background-size: cover;
         background-image: no-repeat;
-        background-image: url("https://sukrins.github.io/disney-clone/images/login-background.jpg");
+        background-image: url("/images/login-background.jpg");
         opacity: 0.7;
         z-index: -1;
     }
