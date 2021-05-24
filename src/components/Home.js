@@ -67,7 +67,7 @@ const Container = styled.main`
     overflow-x: hidden;
 
     &:before {
-        background: url("/images/home-background.png") center center / cover no-repeat fixed;
+        background: url("https://sukrins.github.io/disney-clone/images/home-background.png") center center / cover no-repeat fixed;
         content: "";
         position: absolute;
         top: 0;
