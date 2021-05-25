@@ -8,7 +8,6 @@ import { setMovies } from '../features/movie/movieSlice';
 import { auth } from '../firebase';
 import { selectUserName, setUserLogin } from '../features/user/userSlice';
 import { useHistory } from 'react-router-dom'
-import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
 
 function Home() {
@@ -39,22 +38,11 @@ function Home() {
         })
     }, [])
     return (
-        <div>
-            { !userName ? (
-                <>
-                    <Login />
-                </>
-            ) :
-                <Container>
-
-                    <>
-                        <ImgSlider />
-                        <Viewers />
-                        <Movies />
-                    </>
-                </Container>
-            }
-        </div>
+        <Container>
+            <ImgSlider />
+            <Viewers />
+            <Movies />
+        </Container>
     )
 }
 
